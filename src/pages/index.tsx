@@ -19,9 +19,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="">
-        <div className="container" style={{ padding: '50px 0 100px 0' }}>
-          {!session ? (
+      <main className="h-screen">
+        {!session ? (
+          <div className="flex items-center justify-center h-full">
             <Auth
               supabaseClient={supabase}
               appearance={{ theme: ThemeSupa }}
@@ -29,10 +29,10 @@ export default function Home() {
               providers={['twitch']}
               onlyThirdPartyProviders={true}
             />
-          ) : (
-            <p>Account page will go here.</p>
-          )}
-        </div>
+          </div>
+        ) : (
+          <p>Account page will go here.</p>
+        )}
       </main>
     </>
   )
